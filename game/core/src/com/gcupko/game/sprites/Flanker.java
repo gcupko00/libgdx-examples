@@ -22,9 +22,9 @@ public class Flanker
 
     public Flanker()
     {
-        textureLeft = new Texture(Gdx.files.internal("flankerleft.png"));
-        textureRight = new Texture(Gdx.files.internal("flankerright.png"));
-        textureStraight = new Texture(Gdx.files.internal("flankeranimation.png"));
+        textureLeft = new Texture(Gdx.files.internal("textures/flankerleft.png"));
+        textureRight = new Texture(Gdx.files.internal("textures/flankerright.png"));
+        textureStraight = new Texture(Gdx.files.internal("animations/flankeranimation.png"));
         straightenUp();
         position = new Vector2(Gdx.graphics.getWidth()/2 - getFlanker().getRegionWidth()/2, 10);
         bounds = new Rectangle(position.x, position.y, textureLeft.getWidth(), textureRight.getHeight());

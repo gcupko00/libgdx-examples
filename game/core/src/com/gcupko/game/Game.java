@@ -2,6 +2,7 @@ package com.gcupko.game;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.gcupko.game.states.GameStateManager;
@@ -12,11 +13,13 @@ public class Game extends ApplicationAdapter {
 	public static final int WIDTH = 460;
 	public static final int HEIGHT = 800;
 
+	private static boolean mute;
 	private GameStateManager gsm;
-	SpriteBatch sb;
-	
+	private SpriteBatch sb;
+
 	@Override
 	public void create () {
+		setMute(false);
 		sb = new SpriteBatch();
 		gsm = new GameStateManager();
 		gsm.push(new MenuState(gsm));
@@ -33,5 +36,13 @@ public class Game extends ApplicationAdapter {
 	@Override
 	public void dispose () {
 		sb.dispose();
+	}
+
+	public static void setMute(boolean mute) {
+		Game.mute = mute;
+	}
+
+	public static boolean isMute() {
+		return mute;
 	}
 }

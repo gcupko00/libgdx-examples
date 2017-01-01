@@ -45,8 +45,29 @@ public class Animation
         }
     }
 
+    public void revert()
+    {
+        TextureRegion tmp;
+        for (int i = 0; i < frameCount/2; i++) {
+            tmp = frames.get(frameCount - i - 1);
+            frames.set(frameCount - i - 1, frames.get(i));
+            frames.set(i, tmp);
+        }
+    }
+
     public TextureRegion getFrame()
     {
         return frames.get(frame);
+    }
+
+    public float getFrameStage() { return (float)frame/frameCount; }
+
+    public boolean isOnLastFrame()
+    {
+        if (frame >= frameCount - 1) {
+            frame = 0;
+            return true;
+        }
+        return false;
     }
 }
